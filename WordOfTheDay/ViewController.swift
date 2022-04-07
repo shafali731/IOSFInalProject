@@ -3,7 +3,7 @@
 //  WordOfTheDay
 //
 //  Created by Shafali Gupta on 4/7/22.
-//
+// initial commit 
 
 import UIKit
 
