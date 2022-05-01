@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED33B66A2808A90A0047C433 /* AllResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B6692808A90A0047C433 /* AllResultsViewController.swift */; };
+		ED33B66C2808AE8D0047C433 /* WordAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */; };
+		ED33B66E2819DFD30047C433 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */; };
+		ED33B671281E33F10047C433 /* FavoritedWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */; };
+		ED33B672281E33F10047C433 /* FavoritedWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B670281E33F00047C433 /* FavoritedWord+CoreDataProperties.swift */; };
 		EDC03F4127FF5AE600083DFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F4027FF5AE600083DFA /* AppDelegate.swift */; };
 		EDC03F4327FF5AE600083DFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F4227FF5AE600083DFA /* SceneDelegate.swift */; };
 		EDC03F4527FF5AE600083DFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F4427FF5AE600083DFA /* ViewController.swift */; };
@@ -14,9 +19,17 @@
 		EDC03F4B27FF5AE600083DFA /* WordOfTheDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F4927FF5AE600083DFA /* WordOfTheDay.xcdatamodeld */; };
 		EDC03F4D27FF5AEA00083DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC03F4C27FF5AEA00083DFA /* Assets.xcassets */; };
 		EDC03F5027FF5AEA00083DFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC03F4E27FF5AEA00083DFA /* LaunchScreen.storyboard */; };
+		EDC03F582806280200083DFA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F572806280100083DFA /* CategoryViewController.swift */; };
+		EDC03F5C28073B1200083DFA /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = EDC03F5B28073B0A00083DFA /* Sound.caf */; };
+		EDC03F5E28074BD900083DFA /* RandomResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F5D28074BD900083DFA /* RandomResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED33B6692808A90A0047C433 /* AllResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllResultsViewController.swift; sourceTree = "<group>"; };
+		ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAPIResult.swift; sourceTree = "<group>"; };
+		ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedWord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ED33B670281E33F00047C433 /* FavoritedWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EDC03F3D27FF5AE600083DFA /* WordOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC03F4027FF5AE600083DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDC03F4227FF5AE600083DFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +39,9 @@
 		EDC03F4C27FF5AEA00083DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDC03F4F27FF5AEA00083DFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDC03F5127FF5AEA00083DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDC03F572806280100083DFA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		EDC03F5B28073B0A00083DFA /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
+		EDC03F5D28074BD900083DFA /* RandomResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,8 @@
 		EDC03F3427FF5AE500083DFA = {
 			isa = PBXGroup;
 			children = (
+				ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */,
+				ED33B670281E33F00047C433 /* FavoritedWord+CoreDataProperties.swift */,
 				EDC03F3F27FF5AE600083DFA /* WordOfTheDay */,
 				EDC03F3E27FF5AE600083DFA /* Products */,
 			);
@@ -61,11 +79,17 @@
 				EDC03F4027FF5AE600083DFA /* AppDelegate.swift */,
 				EDC03F4227FF5AE600083DFA /* SceneDelegate.swift */,
 				EDC03F4427FF5AE600083DFA /* ViewController.swift */,
+				EDC03F5D28074BD900083DFA /* RandomResult.swift */,
+				EDC03F572806280100083DFA /* CategoryViewController.swift */,
+				ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */,
 				EDC03F4627FF5AE600083DFA /* Main.storyboard */,
+				ED33B6692808A90A0047C433 /* AllResultsViewController.swift */,
 				EDC03F4C27FF5AEA00083DFA /* Assets.xcassets */,
 				EDC03F4E27FF5AEA00083DFA /* LaunchScreen.storyboard */,
 				EDC03F5127FF5AEA00083DFA /* Info.plist */,
 				EDC03F4927FF5AE600083DFA /* WordOfTheDay.xcdatamodeld */,
+				EDC03F5B28073B0A00083DFA /* Sound.caf */,
+				ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */,
 			);
 			path = WordOfTheDay;
 			sourceTree = "<group>";
@@ -131,6 +155,7 @@
 				EDC03F5027FF5AEA00083DFA /* LaunchScreen.storyboard in Resources */,
 				EDC03F4D27FF5AEA00083DFA /* Assets.xcassets in Resources */,
 				EDC03F4827FF5AE600083DFA /* Main.storyboard in Resources */,
+				EDC03F5C28073B1200083DFA /* Sound.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +166,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC03F582806280200083DFA /* CategoryViewController.swift in Sources */,
 				EDC03F4527FF5AE600083DFA /* ViewController.swift in Sources */,
 				EDC03F4B27FF5AE600083DFA /* WordOfTheDay.xcdatamodeld in Sources */,
+				ED33B66E2819DFD30047C433 /* DetailsTableViewCell.swift in Sources */,
+				ED33B671281E33F10047C433 /* FavoritedWord+CoreDataClass.swift in Sources */,
+				ED33B672281E33F10047C433 /* FavoritedWord+CoreDataProperties.swift in Sources */,
+				ED33B66C2808AE8D0047C433 /* WordAPIResult.swift in Sources */,
 				EDC03F4127FF5AE600083DFA /* AppDelegate.swift in Sources */,
+				ED33B66A2808A90A0047C433 /* AllResultsViewController.swift in Sources */,
 				EDC03F4327FF5AE600083DFA /* SceneDelegate.swift in Sources */,
+				EDC03F5E28074BD900083DFA /* RandomResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
