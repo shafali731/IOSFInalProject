@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import CoreData
 
 class CategoryViewController: UITableViewController {
 //    var categoryList = ["Definition"]
+//    @IBOutlet weak var FavoriteButton: UIBarButtonItem!
+//    var managedObjectContext: NSManagedObjectContext!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+//    var managedObjectContext = UIApplication.shared.delegate.managedObjectContext
+    @IBOutlet weak var FavoriteButton: UIBarButtonItem!
     var word = ""
     var wordWithoutSpaces = ""
     var dataTask: URLSessionDataTask?
@@ -17,11 +24,31 @@ class CategoryViewController: UITableViewController {
     var filteredCategories : [String]  = []
     var filteredSyllables: [String] =  []
     var numberOfCategories = 0
+    var favoritedRecipesList = [FavoritedWord]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let darkModeEnabled = UserDefaults.standard.value(forKey: "darkModeEnabled") as? Bool
+        print(darkModeEnabled!)
+        if(darkModeEnabled!){
+            overrideUserInterfaceStyle = .dark
+            self.navigationController!.navigationBar.barStyle = .black
+            self.navigationController!.navigationBar.isTranslucent = false
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        }
+        else{
+            overrideUserInterfaceStyle = .light
+            self.navigationController!.navigationBar.barStyle = .default
+            self.navigationController!.navigationBar.isTranslucent = true
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        }
         navigationItem.largeTitleDisplayMode = .never
         wordWithoutSpaces = word.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
         getDefinitions()
+        do{
+            self.favoritedRecipesList = try context.fetch(FavoritedWord.fetchRequest())}
+        catch{
+            print("Could not load word")
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -147,6 +174,40 @@ class CategoryViewController: UITableViewController {
           }
         }
         dataTask?.resume()
+    }
+    
+    @IBAction func favorited(){
+        if FavoriteButton.image == UIImage(systemName: "heart"){
+            FavoriteButton.image = UIImage(systemName: "heart.fill")
+//        FavoriteButton.setImage(UIImage(systemName: "heart.fill"))
+        let favorited = FavoritedWord(context: self.context)
+        favorited.name = word
+        do {
+            try self.context.save()
+            self.favoritedRecipesList = try context.fetch(FavoritedWord.fetchRequest())
+            print(favorited)
+        } catch { // 4
+            fatalError("Error: \(error)")
+          }
+        }
+        else if FavoriteButton.image == UIImage(systemName: "heart.fill"){
+            print("double click")
+            print(word)
+            FavoriteButton.image = UIImage(systemName: "heart")
+            for i in 0 ..< favoritedRecipesList.count{
+                print(favoritedRecipesList[i].name)
+                if favoritedRecipesList[i].name == word{
+                    print(i)
+                    print("IN DELETE ")
+                    context.delete(favoritedRecipesList[i])
+                    do {
+                        try self.context.save()
+                    } catch { // 4
+                        fatalError("Error: \(error)")
+                      }
+                }
+            }
+        }
     }
 //    // MARK: - Navigation
 //    override func prepare(

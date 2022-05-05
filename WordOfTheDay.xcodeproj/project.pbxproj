@@ -12,6 +12,8 @@
 		ED33B66E2819DFD30047C433 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */; };
 		ED33B671281E33F10047C433 /* FavoritedWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */; };
 		ED33B672281E33F10047C433 /* FavoritedWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B670281E33F00047C433 /* FavoritedWord+CoreDataProperties.swift */; };
+		ED33B6762820CC660047C433 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B6752820CC660047C433 /* FavoritesViewController.swift */; };
+		ED33B67A282363F90047C433 /* FavoriteButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B679282363F90047C433 /* FavoriteButtonController.swift */; };
 		EDC03F4127FF5AE600083DFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F4027FF5AE600083DFA /* AppDelegate.swift */; };
 		EDC03F4327FF5AE600083DFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F4227FF5AE600083DFA /* SceneDelegate.swift */; };
 		EDC03F4527FF5AE600083DFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC03F4427FF5AE600083DFA /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedWord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ED33B670281E33F00047C433 /* FavoritedWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ED33B6752820CC660047C433 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		ED33B679282363F90047C433 /* FavoriteButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonController.swift; sourceTree = "<group>"; };
 		EDC03F3D27FF5AE600083DFA /* WordOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC03F4027FF5AE600083DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDC03F4227FF5AE600083DFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				EDC03F4927FF5AE600083DFA /* WordOfTheDay.xcdatamodeld */,
 				EDC03F5B28073B0A00083DFA /* Sound.caf */,
 				ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */,
+				ED33B6752820CC660047C433 /* FavoritesViewController.swift */,
+				ED33B679282363F90047C433 /* FavoriteButtonController.swift */,
 			);
 			path = WordOfTheDay;
 			sourceTree = "<group>";
@@ -168,6 +174,7 @@
 			files = (
 				EDC03F582806280200083DFA /* CategoryViewController.swift in Sources */,
 				EDC03F4527FF5AE600083DFA /* ViewController.swift in Sources */,
+				ED33B67A282363F90047C433 /* FavoriteButtonController.swift in Sources */,
 				EDC03F4B27FF5AE600083DFA /* WordOfTheDay.xcdatamodeld in Sources */,
 				ED33B66E2819DFD30047C433 /* DetailsTableViewCell.swift in Sources */,
 				ED33B671281E33F10047C433 /* FavoritedWord+CoreDataClass.swift in Sources */,
@@ -176,6 +183,7 @@
 				EDC03F4127FF5AE600083DFA /* AppDelegate.swift in Sources */,
 				ED33B66A2808A90A0047C433 /* AllResultsViewController.swift in Sources */,
 				EDC03F4327FF5AE600083DFA /* SceneDelegate.swift in Sources */,
+				ED33B6762820CC660047C433 /* FavoritesViewController.swift in Sources */,
 				EDC03F5E28074BD900083DFA /* RandomResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

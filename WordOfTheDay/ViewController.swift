@@ -7,6 +7,14 @@
 
 import UIKit
 import AudioToolbox
+import CoreData
+
+let applicationDocumentsDirectory: URL = {
+  let paths = FileManager.default.urls(
+    for: .documentDirectory,
+    in: .userDomainMask)
+  return paths[0]
+}()
 
 protocol ViewControllerDelegate: AnyObject {
   func ViewControllerGetWord(
@@ -18,16 +26,21 @@ class ViewController: UIViewController {
     weak var delegate: ViewControllerDelegate?
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var infoButton: UIButton!
+//    var managedObjectContext: NSManagedObjectContext!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     
+    @IBOutlet weak var darkModeLabel: UILabel!
     var soundID: SystemSoundID = 0
     var dataTask: URLSessionDataTask?
     var randomWordResult = ""
     var foundWord = false
+    let defaults = UserDefaults.standard
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
     if segue.destination is CategoryViewController {
     let vc = segue.destination as? CategoryViewController
         vc?.word = self.randomWordResult
+//        vc?.managedObjectContext = managedObjectContext
     }
     }
     override func viewDidLoad() {
@@ -36,8 +49,27 @@ class ViewController: UIViewController {
         wordLabel.text = ""
         infoButton.isHidden = true
         loadSoundEffect("Sound.caf")
+        defaults.set(false, forKey: "darkModeEnabled")
+        darkModeLabel.text = "Dark Mode"
+        
+//        overrideUserInterfaceStyle = .dark
     }
-
+    
+    @IBAction func switchDidChange(_ sender: UISwitch){
+        print("clicked")
+        if darkModeSwitch.isOn{
+            defaults.set(true, forKey: "darkModeEnabled")
+            overrideUserInterfaceStyle = .dark
+        }
+        else{
+            defaults.set(false, forKey: "darkModeEnabled")
+            overrideUserInterfaceStyle = .light
+            self.navigationController!.navigationBar.barStyle = .default
+            self.navigationController!.navigationBar.isTranslucent = true
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        }
+        print(defaults.value(forKey: "darkModeEnabled"))
+    }
     @IBAction func randomWord(_ sender: Any) {
 //        let array = ["hello", "bye", "word", "tester"]
 //        wordLabel.text = array.randomElement()
@@ -89,6 +121,9 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.wordLabel.text = self.randomWordResult
+                    UIView.animate(withDuration: 2.0, delay: 0.5, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: [], animations: {
+                        self.wordLabel.center = CGPoint(x:20, y:350 + 15)
+                    }, completion: nil)
                     self.infoButton.isHidden = false
                     self.playSoundEffect()
                 }
