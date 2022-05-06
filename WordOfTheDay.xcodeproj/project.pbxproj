@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED33B66A2808A90A0047C433 /* AllResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B6692808A90A0047C433 /* AllResultsViewController.swift */; };
 		ED33B66C2808AE8D0047C433 /* WordAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */; };
 		ED33B66E2819DFD30047C433 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */; };
 		ED33B671281E33F10047C433 /* FavoritedWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */; };
@@ -27,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED33B6692808A90A0047C433 /* AllResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllResultsViewController.swift; sourceTree = "<group>"; };
 		ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAPIResult.swift; sourceTree = "<group>"; };
 		ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedWord+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				EDC03F572806280100083DFA /* CategoryViewController.swift */,
 				ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */,
 				EDC03F4627FF5AE600083DFA /* Main.storyboard */,
-				ED33B6692808A90A0047C433 /* AllResultsViewController.swift */,
 				EDC03F4C27FF5AEA00083DFA /* Assets.xcassets */,
 				EDC03F4E27FF5AEA00083DFA /* LaunchScreen.storyboard */,
 				EDC03F5127FF5AEA00083DFA /* Info.plist */,
@@ -181,7 +178,6 @@
 				ED33B672281E33F10047C433 /* FavoritedWord+CoreDataProperties.swift in Sources */,
 				ED33B66C2808AE8D0047C433 /* WordAPIResult.swift in Sources */,
 				EDC03F4127FF5AE600083DFA /* AppDelegate.swift in Sources */,
-				ED33B66A2808A90A0047C433 /* AllResultsViewController.swift in Sources */,
 				EDC03F4327FF5AE600083DFA /* SceneDelegate.swift in Sources */,
 				ED33B6762820CC660047C433 /* FavoritesViewController.swift in Sources */,
 				EDC03F5E28074BD900083DFA /* RandomResult.swift in Sources */,

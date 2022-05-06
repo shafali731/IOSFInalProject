@@ -13,6 +13,7 @@ class FavoritesViewController: UITableViewController {
     var FavoritesList = [FavoritedWord]()
     let context = (UIApplication.shared.delegate as! AppDelegate) .persistentContainer.viewContext
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
@@ -103,24 +104,15 @@ class FavoritesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritedWordsCell", for: indexPath)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! FavoritesItemCell
-        
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         let favoriteWords = self.FavoritesList[indexPath.row]
         cell.textLabel!.text = favoriteWords.name
-
-//        cell.updateUI(for:favoriteWords)
-//        label.text = favoriteWords.name
         return cell
-//         Configure the cell...
-
-//        return cell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         
         if editingStyle == .delete
            {
-//               guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-
                 context.delete(FavoritesList[indexPath.row])
 
                do {
@@ -133,6 +125,38 @@ class FavoritesViewController: UITableViewController {
                }
            }
         
+    }
+//    override func tableView(
+//      _ tableView: UITableView,
+//      accessoryButtonTappedForRowWith indexPath: IndexPath
+//    ){
+//        print("hello")
+//    let controller = storyboard!.instantiateViewController(
+//        withIdentifier: "CategoryViewController") as!
+//    CategoryViewController
+////      controller.delegate = self
+//        let word = (FavoritesList[indexPath.row]).name!
+//        controller.word = word
+////      controller.checklistToEdit = checklist
+//      navigationController?.pushViewController(
+//        controller,
+//        animated: true)
+//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(tableView.indexPath)
+        let word = (FavoritesList[indexPath.row]).name
+        performSegue(
+        withIdentifier: "showFavoriteDetails",
+        sender: word)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+    if segue.identifier == "showFavoriteDetails"  {
+        let controller = segue.destination as! CategoryViewController
+        controller.word = sender as! String
+        }
     }
     
 

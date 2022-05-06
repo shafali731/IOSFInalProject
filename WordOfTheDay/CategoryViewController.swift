@@ -9,12 +9,7 @@ import UIKit
 import CoreData
 
 class CategoryViewController: UITableViewController {
-//    var categoryList = ["Definition"]
-//    @IBOutlet weak var FavoriteButton: UIBarButtonItem!
-//    var managedObjectContext: NSManagedObjectContext!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-//    var managedObjectContext = UIApplication.shared.delegate.managedObjectContext
     @IBOutlet weak var FavoriteButton: UIBarButtonItem!
     var word = ""
     var wordWithoutSpaces = ""
@@ -45,7 +40,11 @@ class CategoryViewController: UITableViewController {
         wordWithoutSpaces = word.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
         getDefinitions()
         do{
-            self.favoritedRecipesList = try context.fetch(FavoritedWord.fetchRequest())}
+            self.favoritedRecipesList = try context.fetch(FavoritedWord.fetchRequest())
+            if(self.favoritedRecipesList.contains(where: {$0.name == self.word})){
+            FavoriteButton.image = UIImage(systemName: "heart.fill")
+        }
+        }
         catch{
             print("Could not load word")
         }
@@ -57,18 +56,6 @@ class CategoryViewController: UITableViewController {
     }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
 //    {
-//        if segue.destination is AllResultsViewController {
-//            let vc = segue.destination as? AllResultsViewController
-//            vc?.word = self.word
-//            getDefinitions()
-////            if segue.identifier == "getDefinition" {
-////                print("hefejofije")
-////                vc?.title = "Definition"
-////                getDefinitions()
-////                vc?.wordsApiResult = self.apiResult
-////            }
-//
-//        }
 //    }
     func parse(data: Data) -> WordAPIResult {
 //        print(data)
@@ -195,7 +182,7 @@ class CategoryViewController: UITableViewController {
             print(word)
             FavoriteButton.image = UIImage(systemName: "heart")
             for i in 0 ..< favoritedRecipesList.count{
-                print(favoritedRecipesList[i].name)
+//                print(favoritedRecipesList[i].name)
                 if favoritedRecipesList[i].name == word{
                     print(i)
                     print("IN DELETE ")

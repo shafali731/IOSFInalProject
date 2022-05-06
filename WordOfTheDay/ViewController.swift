@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     weak var delegate: ViewControllerDelegate?
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var infoButton: UIButton!
-//    var managedObjectContext: NSManagedObjectContext!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     
     @IBOutlet weak var darkModeLabel: UILabel!
@@ -68,18 +67,10 @@ class ViewController: UIViewController {
             self.navigationController!.navigationBar.isTranslucent = true
             self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         }
-        print(defaults.value(forKey: "darkModeEnabled"))
+//        print(defaults.value(forKey: "darkModeEnabled"))
     }
     @IBAction func randomWord(_ sender: Any) {
-//        let array = ["hello", "bye", "word", "tester"]
-//        wordLabel.text = array.randomElement()
-//        infoButton.isHidden = false
-//        self.playSoundEffect()
             getRandomWord()
-//            infoButton.isHidden = false
-//            self.playSoundEffect()
-                
-//        }
     }
     func parse(data: Data) -> String {
 //        print(data)
@@ -121,7 +112,7 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.wordLabel.text = self.randomWordResult
-                    UIView.animate(withDuration: 2.0, delay: 0.5, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: [], animations: {
+                    UIView.animate(withDuration: 2.0, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: [], animations: {
                         self.wordLabel.center = CGPoint(x:20, y:350 + 15)
                     }, completion: nil)
                     self.infoButton.isHidden = false
