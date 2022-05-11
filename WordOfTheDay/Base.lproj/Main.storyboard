@@ -35,14 +35,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritedWordsCell" id="jUQ-Vr-9n7">
-                                <rect key="frame" x="0.0" y="44.5" width="375" height="31"/>
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="31.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jUQ-Vr-9n7" id="wpC-8I-NmZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="31"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yg-Ja-LBD">
-                                            <rect key="frame" x="15" y="5" width="345" height="21"/>
+                                            <rect key="frame" x="15" y="5" width="345" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -65,8 +65,11 @@
                             <outlet property="delegate" destination="32R-5n-6i7" id="cP8-61-Ixs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="kUv-3w-Ecs"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="kUv-3w-Ecs">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="questionmark.square.dashed" catalog="system" id="6Jp-UT-jaX" customClass="RandomBarButtonItem" customModule="WordOfTheDay" customModuleProvider="target"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="RandButton" destination="6Jp-UT-jaX" id="6Ml-yu-trT"/>
                         <outlet property="TableView" destination="taG-Vo-ToL" id="MwO-Zx-YcV"/>
                     </connections>
                 </tableViewController>
@@ -273,6 +276,7 @@
     <resources>
         <image name="character.book.closed" catalog="system" width="115" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="questionmark.square.dashed" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
