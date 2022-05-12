@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED204269282B8340005520E8 /* RandomButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED204268282B833F005520E8 /* RandomButtonController.swift */; };
+		ED20426B282C7CEB005520E8 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20426A282C7CEA005520E8 /* FavoritesTableViewCell.swift */; };
 		ED33B66C2808AE8D0047C433 /* WordAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */; };
 		ED33B66E2819DFD30047C433 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */; };
 		ED33B671281E33F10047C433 /* FavoritedWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		ED204268282B833F005520E8 /* RandomButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomButtonController.swift; sourceTree = "<group>"; };
+		ED20426A282C7CEA005520E8 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		ED33B66B2808AE8C0047C433 /* WordAPIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAPIResult.swift; sourceTree = "<group>"; };
 		ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		ED33B66F281E33F00047C433 /* FavoritedWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedWord+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				EDC03F4927FF5AE600083DFA /* WordOfTheDay.xcdatamodeld */,
 				EDC03F5B28073B0A00083DFA /* Sound.caf */,
 				ED33B66D2819DFD30047C433 /* DetailsTableViewCell.swift */,
+				ED20426A282C7CEA005520E8 /* FavoritesTableViewCell.swift */,
 				ED33B6752820CC660047C433 /* FavoritesViewController.swift */,
 				ED33B679282363F90047C433 /* FavoriteButtonController.swift */,
 			);
@@ -185,6 +188,7 @@
 				EDC03F4327FF5AE600083DFA /* SceneDelegate.swift in Sources */,
 				ED33B6762820CC660047C433 /* FavoritesViewController.swift in Sources */,
 				EDC03F5E28074BD900083DFA /* RandomResult.swift in Sources */,
+				ED20426B282C7CEB005520E8 /* FavoritesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

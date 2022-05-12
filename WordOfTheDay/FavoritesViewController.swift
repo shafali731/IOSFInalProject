@@ -68,7 +68,7 @@ class FavoritesViewController: UITableViewController, RandomFavoriteDelegate {
 //        self.navigationItem.setLeftBarButton(barButton, animated: true)
         tableView.register(
           UITableViewCell.self,
-          forCellReuseIdentifier: "FavoritedWordsCell")
+          forCellReuseIdentifier: "FavCell")
         self.fetchFavorites()
 
         // Uncomment the following line to preserve selection between presentations
@@ -143,10 +143,13 @@ class FavoritesViewController: UITableViewController, RandomFavoriteDelegate {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritedWordsCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath)
+//        as! FavoritesTableViewCell
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         let favoriteWords = self.FavoritesList[indexPath.row]
         cell.textLabel!.text = favoriteWords.name
+        cell.textLabel!.font = UIFont(name:"American Typewriter", size:20)
+//        cell.FavTitle.text = favoriteWords.name
         return cell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){

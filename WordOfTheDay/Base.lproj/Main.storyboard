@@ -34,16 +34,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritedWordsCell" id="jUQ-Vr-9n7">
-                                <rect key="frame" x="0.0" y="44.5" width="375" height="31.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavCell" id="jUQ-Vr-9n7">
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jUQ-Vr-9n7" id="wpC-8I-NmZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jUQ-Vr-9n7" id="wpC-8I-NmZ" customClass="FavoritesTableViewCell" customModule="WordOfTheDay" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yg-Ja-LBD">
-                                            <rect key="frame" x="15" y="5" width="345" height="21.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="15" y="5" width="345" height="24"/>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -54,6 +54,9 @@
                                         <constraint firstAttribute="trailing" secondItem="8Yg-Ja-LBD" secondAttribute="trailing" constant="15" id="gk4-90-2bZ"/>
                                         <constraint firstAttribute="bottom" secondItem="8Yg-Ja-LBD" secondAttribute="bottom" constant="5" id="jqc-5c-Y31"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="FavTitle" destination="8Yg-Ja-LBD" id="IC5-Pf-VrF"/>
+                                    </connections>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="4BI-xQ-5ub" kind="show" identifier="showFavoriteDetails" trigger="accessoryAction" id="mrC-8k-WqT"/>
@@ -120,43 +123,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Your Word Of The Day!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atf-t1-hE5">
-                                <rect key="frame" x="20" y="144" width="335" height="95.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Your Word Of The Day!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atf-t1-hE5">
+                                <rect key="frame" x="20" y="157" width="335" height="92.5"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CX-ho-9zW">
-                                <rect key="frame" x="50" y="279.5" width="275" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CX-ho-9zW">
+                                <rect key="frame" x="50" y="290" width="275" height="42"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Get Word!"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Get Word!">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="AmericanTypewriter-Semibold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="randomWord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TLz-6j-srF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiT-Cc-dpz">
-                                <rect key="frame" x="20" y="360.5" width="335" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiT-Cc-dpz">
+                                <rect key="frame" x="20" y="372" width="335" height="111.5"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIu-KH-ag5">
-                                <rect key="frame" x="20" y="431" width="335" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIu-KH-ag5">
+                                <rect key="frame" x="20" y="518.5" width="335" height="69.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Get Information on your Word"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Get Information on your Word">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="AmericanTypewriter-Semibold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="4BI-xQ-5ub" kind="show" identifier="getWordCategory" id="rfe-AQ-Ltr"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rN4-9A-suR">
-                                <rect key="frame" x="50" y="59" width="51" height="35"/>
+                                <rect key="frame" x="20" y="59" width="51" height="72"/>
                                 <connections>
                                     <action selector="switchDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="xC2-gm-zGg"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAG-2t-aQ5">
-                                <rect key="frame" x="139" y="59" width="161" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="92" y="59" width="206" height="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -164,31 +189,26 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2CX-ho-9zW" firstAttribute="top" secondItem="atf-t1-hE5" secondAttribute="bottom" constant="40" id="0XN-VJ-14V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EiT-Cc-dpz" secondAttribute="trailing" constant="20" id="3Au-YX-8NE"/>
-                            <constraint firstItem="EiT-Cc-dpz" firstAttribute="top" secondItem="2CX-ho-9zW" secondAttribute="bottom" constant="50" id="7T1-0K-cIp"/>
-                            <constraint firstItem="ZAG-2t-aQ5" firstAttribute="leading" secondItem="rN4-9A-suR" secondAttribute="trailing" constant="40" id="DFZ-fe-LKq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZAG-2t-aQ5" secondAttribute="trailing" constant="75" id="ESP-y8-as3"/>
-                            <constraint firstItem="atf-t1-hE5" firstAttribute="top" secondItem="ZAG-2t-aQ5" secondAttribute="bottom" constant="50" id="F4B-Je-P4u"/>
+                            <constraint firstItem="ZAG-2t-aQ5" firstAttribute="leading" secondItem="rN4-9A-suR" secondAttribute="trailing" constant="23" id="DFZ-fe-LKq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZAG-2t-aQ5" secondAttribute="trailing" constant="77" id="ESP-y8-as3"/>
+                            <constraint firstItem="atf-t1-hE5" firstAttribute="top" secondItem="ZAG-2t-aQ5" secondAttribute="bottom" constant="48" id="F4B-Je-P4u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="atf-t1-hE5" secondAttribute="trailing" constant="20" id="Hor-qW-3z8"/>
-                            <constraint firstItem="2CX-ho-9zW" firstAttribute="top" secondItem="atf-t1-hE5" secondAttribute="bottom" constant="40" id="IC0-Mc-g40"/>
+                            <constraint firstItem="2CX-ho-9zW" firstAttribute="top" secondItem="atf-t1-hE5" secondAttribute="bottom" constant="40.5" id="IC0-Mc-g40"/>
                             <constraint firstItem="2CX-ho-9zW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="LBb-wv-Zep"/>
-                            <constraint firstItem="atf-t1-hE5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="PKi-Uy-7O7"/>
-                            <constraint firstItem="EiT-Cc-dpz" firstAttribute="top" secondItem="2CX-ho-9zW" secondAttribute="bottom" constant="50" id="QZw-dd-VuT"/>
+                            <constraint firstItem="atf-t1-hE5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="113" id="PKi-Uy-7O7"/>
+                            <constraint firstItem="EiT-Cc-dpz" firstAttribute="top" secondItem="2CX-ho-9zW" secondAttribute="bottom" constant="40" id="QZw-dd-VuT"/>
                             <constraint firstItem="VIu-KH-ag5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Qv2-jl-WXy"/>
                             <constraint firstItem="rN4-9A-suR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="RLL-S9-KKT"/>
-                            <constraint firstItem="rN4-9A-suR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="Rnw-mJ-MDc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VIu-KH-ag5" secondAttribute="trailing" constant="20" id="Sk1-mo-zXv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2CX-ho-9zW" secondAttribute="trailing" constant="50" id="WB3-Ql-zcj"/>
-                            <constraint firstItem="ZAG-2t-aQ5" firstAttribute="leading" secondItem="rN4-9A-suR" secondAttribute="trailing" constant="40" id="XK3-9K-NWj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VIu-KH-ag5" secondAttribute="bottom" constant="30" id="Y9V-pZ-UiP"/>
                             <constraint firstItem="EiT-Cc-dpz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZGf-GQ-bkL"/>
                             <constraint firstItem="ZAG-2t-aQ5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="dzV-qo-nAX"/>
-                            <constraint firstItem="rN4-9A-suR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="gl9-Fx-RHy"/>
+                            <constraint firstItem="rN4-9A-suR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gl9-Fx-RHy"/>
                             <constraint firstItem="atf-t1-hE5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gw7-bO-zaJ"/>
-                            <constraint firstItem="VIu-KH-ag5" firstAttribute="top" secondItem="EiT-Cc-dpz" secondAttribute="bottom" constant="50" id="hfS-RY-nmR"/>
-                            <constraint firstItem="atf-t1-hE5" firstAttribute="top" secondItem="rN4-9A-suR" secondAttribute="bottom" constant="50" id="nR7-iD-qCG"/>
-                            <constraint firstItem="VIu-KH-ag5" firstAttribute="top" secondItem="EiT-Cc-dpz" secondAttribute="bottom" constant="50" id="ofx-dc-HgE"/>
-                            <constraint firstItem="ZAG-2t-aQ5" firstAttribute="leading" secondItem="rN4-9A-suR" secondAttribute="trailing" constant="40" id="qss-Gz-FhG"/>
+                            <constraint firstItem="VIu-KH-ag5" firstAttribute="top" secondItem="EiT-Cc-dpz" secondAttribute="bottom" constant="35" id="hfS-RY-nmR"/>
+                            <constraint firstItem="atf-t1-hE5" firstAttribute="top" secondItem="rN4-9A-suR" secondAttribute="bottom" constant="26" id="nR7-iD-qCG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2CX-ho-9zW" secondAttribute="trailing" constant="50" id="ncs-yk-Tr3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0ds-qy-GYn"/>
@@ -220,14 +240,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBp-YX-JR1">
-                                            <rect key="frame" x="31" y="16" width="313" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <rect key="frame" x="31" y="16" width="313" height="25"/>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a random definition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vot-W8-93D">
-                                            <rect key="frame" x="31" y="41.5" width="313" height="102.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="31" y="46" width="313" height="98"/>
+                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -271,7 +291,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mrC-8k-WqT"/>
+        <segue reference="rfe-AQ-Ltr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="character.book.closed" catalog="system" width="115" height="128"/>
