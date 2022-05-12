@@ -38,13 +38,15 @@ class FavoritesViewController: UITableViewController, RandomFavoriteDelegate {
     var delegate : RandomFavoriteDelegate?
     func randomButtonTapped(favWord: String) {
         let alert = UIAlertController(
-            title: "Random Favorite",
-            message: favWord,
+//            title: "Random Favorite",
+            title: favWord, message: "",
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "Get Details", style: .cancel, handler: { action -> Void in self.performSegue(
+        alert.addAction(UIAlertAction(title: "Get Details", style: .default, handler: { action -> Void in self.performSegue(
             withIdentifier: "showFavoriteDetails",
             sender: favWord)}))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
     

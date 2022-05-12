@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var darkModeLabel: UILabel!
     var soundID: SystemSoundID = 0
     var dataTask: URLSessionDataTask?
@@ -46,12 +47,46 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         wordLabel.text = ""
+        UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [], animations: {
+            self.titleLabel.center = CGPoint(x:0, y:0 + 25)
+        }, completion: nil)
         infoButton.isHidden = true
         loadSoundEffect("Sound.caf")
         defaults.set(false, forKey: "darkModeEnabled")
         darkModeLabel.text = "Dark Mode"
+        let darkModeEnabled = UserDefaults.standard.value(forKey: "darkModeEnabled") as? Bool
+        print(darkModeEnabled!)
+        if(darkModeEnabled!){
+            overrideUserInterfaceStyle = .dark
+            self.navigationController!.navigationBar.barStyle = .black
+            self.navigationController!.navigationBar.isTranslucent = false
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        }
+        else{
+            overrideUserInterfaceStyle = .light
+            self.navigationController!.navigationBar.barStyle = .default
+            self.navigationController!.navigationBar.isTranslucent = true
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        }
         
 //        overrideUserInterfaceStyle = .dark
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let darkModeEnabled = UserDefaults.standard.value(forKey: "darkModeEnabled") as? Bool
+        if(darkModeEnabled!){
+            overrideUserInterfaceStyle = .dark
+            self.navigationController!.navigationBar.barStyle = .black
+            self.navigationController!.navigationBar.isTranslucent = false
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+        }
+        else{
+            overrideUserInterfaceStyle = .light
+            self.navigationController!.navigationBar.barStyle = .default
+            self.navigationController!.navigationBar.isTranslucent = true
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        }
     }
     
     @IBAction func switchDidChange(_ sender: UISwitch){
@@ -112,9 +147,9 @@ class ViewController: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.wordLabel.text = self.randomWordResult
-                    UIView.animate(withDuration: 2.0, delay: 0.2, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: [], animations: {
-                        self.wordLabel.center = CGPoint(x:20, y:350 + 15)
-                    }, completion: nil)
+//                    UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: [], animations: {
+//                        self.wordLabel.center = CGPoint(x:20, y:350 + 15)
+//                    }, completion: nil)
                     self.infoButton.isHidden = false
                     self.playSoundEffect()
                 }
