@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol RandomFavoriteDelegate: AnyObject{
-//    func randomButtonTapped(name:String, button: UIButton, id: Int)
     func randomButtonTapped(favWord: String)
 }
 class RandomBarButtonItem : UIBarButtonItem {
